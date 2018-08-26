@@ -1,0 +1,29 @@
+﻿Steps
+
+- User* scann barcode
+- dispaly barcode to txtBarcode
+	- set focus to txtPerKolli
+
+- User* type how meny per kolli
+- User* press Enter
+
+- Mobile send barcode, perKolli to Form
+- Form send name, mottat/kolli to Mobile
+- Mobile display name
+- Mobile display mottat/kolli
+	- set focus to txtAntall
+
+- User* type antall kolli
+- User* press Enter
+	- set focus to txtLabels
+
+- User* type antall labels
+- User* press Enter
+
+- Mobile send txtAntall to Form
+- Mobile send txtLabels to Form
+
+- Form print labels
+
+- set focus to txtBarcode
+- clear txtBarcode
