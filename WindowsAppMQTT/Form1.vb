@@ -60,4 +60,32 @@ Public Class Form1
         lblBestilt.Text = DataGridView1.Item(4, index).Value
 
     End Sub
+
+
+
+
+    Friend TextToBePrinted As String
+
+    Public Sub prt(ByVal text As String, ByVal printer As String)
+        TextToBePrinted = text
+        Dim prn As New Printing.PrintDocument
+        Using (prn)
+            prn.PrinterSettings.PrinterName = printer
+            AddHandler prn.PrintPage,
+               AddressOf Me.PrintPageHandler
+            prn.Print()
+            RemoveHandler prn.PrintPage,
+               AddressOf Me.PrintPageHandler
+        End Using
+    End Sub
+
+    Private Sub PrintPageHandler(ByVal sender As Object, ByVal args As Printing.PrintPageEventArgs)
+        Dim myFont As New Font("Courier New", 9)
+        args.Graphics.DrawString(TextToBePrinted, New Font(myFont, FontStyle.Bold), Brushes.Black, 5, 5)
+    End Sub
+
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        prt("elo jesien", "ZDesigner ZQ520 (CPCL)")
+    End Sub
 End Class

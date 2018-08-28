@@ -14,7 +14,7 @@ namespace MyMqtt
             mqttClient = new MqttClient("m21.cloudmqtt.com", 12004, false, null, null, MqttSslProtocols.None);
             mqttClient.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
 
-            mqttClient.Connect("PCname", "uugymqbo", "pSUnBCfynYB8", false, 9999);
+            mqttClient.Connect("PCname2", "uugymqbo", "pSUnBCfynYB8", false, 9999);
             if (mqttClient.IsConnected)
             {
                 return true;
